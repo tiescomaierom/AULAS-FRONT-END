@@ -3,3 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
+li {
+  border: 20px solid purple;  
+  display: block;
+}
