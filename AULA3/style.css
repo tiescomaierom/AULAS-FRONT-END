@@ -1,8 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Manrope:wght@200..800&display=swap');
+/* importa fonte */
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: "Google Sans", sans-serif;
 }
 body {
     background-color: #000000;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding-top: 16px;
+}
+.logo{
+    display: block;
+    width: 150px;
+}
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    font-size: 40px;
+}
+ul {
+    display: flex;
+    gap: 50px;
+    padding-bottom: 24px;
+}
+/* li {
+    display: flex;
+
+} */
+ .perfil {
+    width: 124px;
+    height: 124px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+} 
+li{
+    /* padding-bottom: 32px; */
+}
+.perfil:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+p {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 10px;
+}
+button {
+    display: block;
+    background-color: transparent;
+   border: 2px solid #808080;
+   color: #808080;
+   padding: 5px 20px;
+   letter-spacing: 4px; 
+   transition: all 0.5s ease-in-out;
+}
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    
 }
