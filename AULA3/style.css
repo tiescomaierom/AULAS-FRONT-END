@@ -14,7 +14,8 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    padding-top: 16px;
+    /* padding-top: 16px; */
+    
 }
 .logo{
     display: block;
@@ -31,19 +32,13 @@ ul {
     gap: 50px;
     padding-bottom: 24px;
 }
-/* li {
-    display: flex;
 
-} */
  .perfil {
     width: 124px;
     height: 124px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 } 
-li{
-    /* padding-bottom: 32px; */
-}
 .perfil:hover{
     transform: scale(1.1);
     cursor: pointer;
