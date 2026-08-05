@@ -1,0 +1,9 @@
+FUNÇÕES
+
+1. CALCULADORA
+ - capturar 2 numeros do usuário e o operador matemático (+, -, *, / )
+ - exibir o resultado esperado
+ - precisa ter uma função inicial - chamam os prompts
+ - as contas devem ser feitas com FUNÇÕES
+
+ 
