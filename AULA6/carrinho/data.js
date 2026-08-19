@@ -1,38 +1,38 @@
 export const produtos = [
     {
         id: "1",
-        nome: "Geladeira",
+        nome: "Camel Amarelo",
         preco: "2300,00",
-        imagem: ""
+        imagem: "./assets/camel-amarelo.jpg"
     },
     {
         id: "2",
-        nome: "Sofá 3 lugares",
+        nome: "Camel Azul",
         preco: "2459,00",
-        imagem: ""
+        imagem: "./assets/camel-azul.jpg"
     },
     {
         id: "3",
-        nome: "Celular Xiaomi",
+        nome: "Winston Red",
         preco: "2189,90",
-        imagem: ""
+        imagem: "./assets/winston-red.jpg"
     },
     {
         id: "4",
-        nome: "Notebook",
+        nome: "Camel",
         preco: "4589,00",
-        imagem: ""
+        imagem: "./assets/cigarro-camel.jpg"
     },
     {
         id: "5",
-        nome: "Caneca",
+        nome: "Winston Mentol",
         preco: "59,00",
-        imagem: ""
+        imagem: "./assets/winston-mentolado.jpg"
     },
     {
         id: "6",
-        nome: "Playstation 4",
+        nome: "Winston",
         preco: "2229,89",
-        imagem: ""
+        imagem: "./assets/winston.jpg"
     }
 ]

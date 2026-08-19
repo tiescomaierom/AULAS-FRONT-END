@@ -1,3 +1,48 @@
-h1 {
-    color: blue;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    gap: 32px;
+    height: 89vh;
+    align-items: flex-start;
+}
+
+.cigarro {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cigarro, li p{
+    text-align: center;
+}
+
+.tituloCigarro{
+    display: block;
+    align-items: center;
+    color: blueviolet;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.tituloCarrinho {
+    color: rgb(87, 0, 250);
+    width: 100%;
+}
+
+.carrinho {
+    flex-wrap: wrap;
+    width: 40%;
+    border: 2px solid #333;
+  border-radius: 8px; /* Cantos arredondados */
+  padding: 20px; /* Espaço interno */
+  margin: 20px auto;
 }
