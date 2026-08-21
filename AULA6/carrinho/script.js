@@ -1,35 +1,25 @@
-import {produtos} from "./data.js"
+import { produtos } from "./data.js";
 
-const body = document.querySelector("body")
+const body = document.querySelector("body");
 
+// Variável para armazenar a soma total do carrinho
+let totalCarrinho = 0;
 
-function montarHeader(){
-    const header = document.createElement("header")
-    const h1 = document.createElement("h1")
+// 1. Criação do cabeçalho
+function montarHeader() {
+    const header = document.createElement("header");
+    const h1 = document.createElement("h1");
 
-    h1.innerText = "Tabacaria"
-    header.append(h1)
-    body.append(header)
+    h1.innerText = "Tabacaria";
+    header.append(h1);
+    body.append(header);
 }
 
-//  <main>
-//         <ul class="cigarro">
-//             <h2 class="tituloCigarro">Cigarros</h2>
-//             <li>
-//                 <img src="./assets/camel-amarelo.jpg" alt="">
-//                 <p>Camel Amarelo</p>
-//                 <button>COMPRAR</button>
-//             </li>
-          
-//         </ul>
-        
-//     </main>
-
-
-function montarMain(){
+// 2. Criação da estrutura base da aplicação (Vitrine + Carrinho)
+function montarEstruturaMain() {
     const main = document.createElement("main");
 
-    // 1. Seção da Lista de Produtos
+    // Container da lista de produtos à venda
     const ulCigarros = document.createElement("ul");
     ulCigarros.classList.add("cigarro");
 
@@ -38,48 +28,35 @@ function montarMain(){
     tituloCigarros.innerText = "Cigarros";
     ulCigarros.append(tituloCigarros);
 
-    // Renderiza cada produto com seu respectivo preço
-    produtos.forEach((produto) => {
-        const li = document.createElement("li");
-
-        const img = document.createElement("img");
-        img.src = produto.imagem;
-        img.alt = produto.nome;
-
-        const nome = document.createElement("p");
-        nome.innerText = produto.nome;
-
-        const preco = document.createElement("p");
-        preco.innerText = `R$ ${produto.preco}`;
-
-        const btn = document.createElement("button");
-        btn.innerText = "COMPRAR";
-        btn.addEventListener("click", () => {
-            adicionarAoCarrinho(produto);
-        });
-
-        li.append(img, nome, preco, btn);
-        ulCigarros.append(li);
-    });
-
-    // 2. Seção do Carrinho
-    const ulCarrinho = document.createElement("ul");
-    ulCarrinho.classList.add("carrinho");
+    // Container do carrinho de compras
+    const secaoCarrinho = document.createElement("section");
+    secaoCarrinho.classList.add("container-carrinho");
 
     const tituloCarrinho = document.createElement("h2");
     tituloCarrinho.classList.add("tituloCarrinho");
     tituloCarrinho.innerText = "CARRINHO";
-    ulCarrinho.append(tituloCarrinho);
 
-    main.append(ulCigarros, ulCarrinho);
+    const ulCarrinho = document.createElement("ul");
+    ulCarrinho.classList.add("carrinho");
+
+    // Elemento para exibir o valor total acumulado
+    const pTotal = document.createElement("p");
+    pTotal.classList.add("total-carrinho");
+    pTotal.innerText = "TOTAL: R$ 0,00";
+
+    secaoCarrinho.append(tituloCarrinho, ulCarrinho, pTotal);
+    main.append(ulCigarros, secaoCarrinho);
     body.append(main);
-    
 }
+
+// 3. Adiciona itens ao carrinho e atualiza o total
 function adicionarAoCarrinho(produto) {
     const carrinhoLista = document.querySelector(".carrinho");
+    const elementoTotal = document.querySelector(".total-carrinho");
 
+    // Cria o item da lista do carrinho
     const li = document.createElement("li");
-    
+
     const img = document.createElement("img");
     img.src = produto.imagem;
     img.alt = produto.nome;
@@ -89,11 +66,21 @@ function adicionarAoCarrinho(produto) {
 
     li.append(img, p);
     carrinhoLista.append(li);
+
+    // Converte a string de preço para float para somar corretamente
+    const valorNumerico = parseFloat(produto.preco.replace(".", "").replace(",", "."));
+    totalCarrinho += valorNumerico;
+
+    // Atualiza o texto do TOTAL formatado no padrão monetário brasileiro
+    elementoTotal.innerText = `TOTAL: R$ ${totalCarrinho.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })}`;
 }
 
-
-function montarProdutos(){ // trancreve html para o javascript
-const listaCigarros = document.querySelector(".cigarro");
+// 4. Renderiza todos os cards de produtos com imagem, nome, preço e botão de compra
+function montarProdutos() {
+    const listaCigarros = document.querySelector(".cigarro");
 
     produtos.forEach((produto) => {
         const li = document.createElement("li");
@@ -106,7 +93,6 @@ const listaCigarros = document.querySelector(".cigarro");
         nome.classList.add("nome-produto");
         nome.innerText = produto.nome;
 
-        // Elemento para exibir o preço
         const preco = document.createElement("p");
         preco.classList.add("preco-produto");
         preco.innerText = `R$ ${produto.preco}`;
@@ -114,32 +100,17 @@ const listaCigarros = document.querySelector(".cigarro");
         const btn = document.createElement("button");
         btn.innerText = "COMPRAR";
 
+        // Listener de clique para adicionar ao carrinho
         btn.addEventListener("click", () => {
             adicionarAoCarrinho(produto);
         });
 
-        // Adiciona a imagem, o nome, o preço e o botão ao <li>
         li.append(img, nome, preco, btn);
         listaCigarros.append(li);
     });
 }
+
+// Execução sequencial da montagem da página
 montarHeader();
-montarMain();
+montarEstruturaMain();
 montarProdutos();
-
-// function montarCarrinho(){
-
-// }
-// const button = document.querySelector("button")
-// button.addEventListener("click",()=>{
-//     console.log('click')
-//     const carrinhoLista = document.querySelector(".carrinho")
-//     //  <li>
-//     //             <img src="./assets/camel-amarelo.jpg" alt="">
-//     //             <p>Camel Amarelo</p>
-//     //             <button>COMPRAR</button>
-//     //         </li>
-//     const img = document.createElement("img")
-//     img.src = produtos[0].imagem
-//     carrinhoLista.append(img)
-// })

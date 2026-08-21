@@ -4,45 +4,81 @@
     box-sizing: border-box;
 }
 
+body {
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
 main {
     display: flex;
     gap: 32px;
-    height: 89vh;
     align-items: flex-start;
-}
-
-.cigarro {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.cigarro, li p{
-    text-align: center;
-}
-
-.tituloCigarro{
-    display: block;
-    align-items: center;
-    color: blueviolet;
-    width: 100%;
 }
 
 li {
     list-style: none;
 }
 
-.tituloCarrinho {
-    color: rgb(87, 0, 250);
+/* Vitrine de Cigarros */
+.cigarro {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.tituloCigarro {
+    color: blueviolet;
     width: 100%;
 }
 
-.carrinho {
-    flex-wrap: wrap;
+.cigarro li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.cigarro li img {
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Carrinho */
+.container-carrinho {
     width: 40%;
     border: 2px solid #333;
-  border-radius: 8px; /* Cantos arredondados */
-  padding: 20px; /* Espaço interno */
-  margin: 20px auto;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.tituloCarrinho {
+    color: rgb(87, 0, 250);
+    margin-bottom: 15px;
+}
+
+.carrinho li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.carrinho li img {
+    width: 40px;
+    height: 40px;
+}
+
+.total-carrinho {
+    margin-top: 15px;
+    font-weight: bold;
 }
